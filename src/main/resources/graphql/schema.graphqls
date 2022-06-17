@@ -1,0 +1,32 @@
+schema{
+    query: Query
+}
+
+type Query{
+    #allBooks: [Book]
+    #book(isn: String, title: String): Book
+    allEcus: [EcuModel]
+    ecus(swVersionNumber: String, hwVersionNumber: String, sparePartNumber: String): [EcuModel]
+}
+
+type Book{
+    isn: String
+    title: String
+    publisher: String
+    authors: [String]
+    publishedDate: String
+}
+
+type EcuModel{
+    id: Int
+    gsg_name: String
+    diagnostic_addresses: [String]
+    sg_version_id: String
+    sgv_status_id: Int
+    spare_part_number: String
+    hw_version_id: String
+    ecu_part_number: String
+    hwVersionNumber: String
+    sw_version_id: String
+    swVersionNumber: String
+}

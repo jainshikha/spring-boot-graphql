@@ -1,0 +1,15 @@
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    exception-handlers-enabled: true
+    context-setting: per_query_with_instrumentation
+    tracingEnabled: false
+
+  graphiql:
+    path: /graphiql
+    enabled: true
+  path: /graphql
+
+sever:
+  port: 8091
