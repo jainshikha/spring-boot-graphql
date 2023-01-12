@@ -2,6 +2,7 @@ package com.tech.impli.graphql.springbootgraphql.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tech.impli.graphql.springbootgraphql.model.EcuModel;
+import com.tech.impli.graphql.springbootgraphql.model.EcuModelRequest;
 import com.tech.impli.graphql.springbootgraphql.repos.EcuModelRepository;
 import com.tech.impli.graphql.springbootgraphql.service.EcuModelDataFecher.AllEcuModelDataFetcher;
 import com.tech.impli.graphql.springbootgraphql.service.EcuModelDataFecher.EcuModelDataFetcher;
@@ -60,27 +61,25 @@ public class GraphQLService {
     List<EcuModel> ecuModel =
         Arrays.asList(
             mapper.readValue(
-                new File("C:/Users/A119619981/T-system/Spector/taget_sw_json/11D.txt"),
+                new File("/Users/A119619981/Documents/Shikha/Spector/taget_sw_json/11D.txt"),
                 EcuModel[].class));
-
-    try {
-      JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
-
-      List<String> list = new ArrayList<String>();
-      JSONArray array = obj.getJSONArray("interests");
-      for (int i = 0; i < array.length(); i++) {
-        list.add(array.getJSONObject(i).getString("interestKey"));
-      }
-      System.out.println("List is "+list);
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+    /** Read object from file */
+    List<EcuModelRequest> ecuModelRequest =
+            Arrays.asList(
+                    mapper.readValue(
+                            new File("/Users/A119619981/Documents/Shikha/Spector/taget_sw_json/5.txt"),
+                            EcuModelRequest.class));
 
     Stream.of(ecuModel)
         .forEach(
             ecuList -> {
               ecuModelRepository.saveAll(ecuList);
             });
+    Stream.of(ecuModel)
+            .forEach(
+                    ecuList -> {
+                      ecuModelRepository.saveAll(ecuList);
+                    });
   }
 
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/ecuModelResource")
 @RestController
 public class EcuModelResource {
-
+  public static final String ROOT_PATH = "/item";
   @Autowired GraphQLService graphQLService;
 
   @PostMapping

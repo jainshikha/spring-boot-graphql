@@ -3,8 +3,6 @@ schema{
 }
 
 type Query{
-    #allBooks: [Book]
-    #book(isn: String, title: String): Book
     allEcus: [EcuModel]
     ecus(swVersionNumber: String, hwVersionNumber: String, sparePartNumber: String): [EcuModel]
 }
